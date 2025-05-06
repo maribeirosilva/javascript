@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora</title>
+    <style>
+        /* 
+        Tarde: #A67864
+        Noite: #474A49
+        */
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            color: white;
+            background-color: #cacaca;
+            text-align: center;
+        }
+
+        h1 {
+            padding: 20px;
+        }
+
+        section {
+            color: black;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.404);
+            width: 50%;
+            padding: 10px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        div {
+            padding: 7px;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body onload="carregar()" id="fundoCor">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div id="msg">Mensagem...</div>
+        <div id="foto">
+            <img id="imagem" src="imagens/manha-imagem.jpg" alt="">
+        </div>
+    </section>
+    <footer>&copy; CursoemVideo</footer>
+    <script>
+        function carregar() {
+            var msg = window.document.getElementById('msg')
+            var img = window.document.getElementById('imagem')
+            var data = new Date()
+            var hora = data.getHours()
+            
+            if (hora >=0 && hora < 12) {
+                msg.innerHTML = `Bom dia! Agora são ${hora} horas.`
+                img.src = 'imagens/manha-imagem.jpg'
+                fundoCor.style.backgroundColor = '#D0C091'
+            } else if (hora > 12 && hora <= 18) {
+                msg.innerHTML = `Boa tarde! Agora são ${hora} horas.`
+                img.src = 'imagens/tarde-imagem.jpg'
+                fundoCor.style.backgroundColor = '#A67864'
+            } else {
+                msg.innerHTML = `Boa noite! Agora são ${hora} horas.`
+                img.src = 'imagens/noite-imagem.jpg'
+                fundoCor.style.backgroundColor = '#474A49'
+            }
+
+        }
+    </script>
+</body>
+</html>
